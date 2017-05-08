@@ -11,13 +11,13 @@ def longestIncreasingSubsequence(s):
     min_tail[0] = -1
     # longest increasing subsequence length
     lis_len = 0
-    for i in range(len(s)):
-        index = bisect.bisect_left(min_tail, s[i], 0, lis_len + 1)
+    for x in s:
+        index = bisect.bisect_left(min_tail, x, 0, lis_len + 1)
         if min_tail[index] is None:
             lis_len += 1
-            min_tail[index] = s[i]
+            min_tail[index] = x
         else:
-            min_tail[index] = min(min_tail[index], s[i])
+            min_tail[index] = min(min_tail[index], x)
     return lis_len
 
 
